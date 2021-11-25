@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 import Nav from "../components/Nav";
 
 /**
@@ -18,8 +18,8 @@ export default function Transfers({ transfers }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {transfers.map(({id, date}) => (
-                            <Link key={id} href={`/transfers/${id}`}>
+                        {transfers.map(({ id, date }) => (
+                            <Link key={id} href={`/transfers/${id}`} passHref>
                                 <tr className="hover">
                                     <td>{id}</td>
                                     <td>{date}</td>
@@ -27,7 +27,7 @@ export default function Transfers({ transfers }) {
                             </Link>
                         ))}
                     </tbody>
-                    </table>
+                </table>
             </div>
         </>
     );
@@ -36,33 +36,40 @@ export default function Transfers({ transfers }) {
 export async function getServerSideProps() {
     return {
         props: {
-            transfers: 
-                [{
-                    "id": 1,
-                    "date": "03/08/2021",
-                  }, {
-                    "id": 2,
-                    "date": "11/13/2021",
-                  }, {
-                    "id": 3,
-                    "date": "11/24/2021",
-                  }, {
-                    "id": 4,
-                    "date": "01/11/2021",
-                  }, {
-                    "id": 5,
-                    "date": "10/24/2021",
-                  }, {
-                    "id": 6,
-                    "date": "08/01/2021",
-                  }, {
-                    "id": 7,
-                    "date": "06/03/2021",
-                  }, {
-                    "id": 8,
-                    "date": "06/08/2021",
-                  }]
-
+            transfers: [
+                {
+                    id: 1,
+                    date: "03/08/2021",
+                },
+                {
+                    id: 2,
+                    date: "11/13/2021",
+                },
+                {
+                    id: 3,
+                    date: "11/24/2021",
+                },
+                {
+                    id: 4,
+                    date: "01/11/2021",
+                },
+                {
+                    id: 5,
+                    date: "10/24/2021",
+                },
+                {
+                    id: 6,
+                    date: "08/01/2021",
+                },
+                {
+                    id: 7,
+                    date: "06/03/2021",
+                },
+                {
+                    id: 8,
+                    date: "06/08/2021",
+                },
+            ],
         },
     };
 }
