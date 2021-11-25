@@ -1,8 +1,5 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Icon, InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import { useState } from "react";
-import styles from "../styles/Home.module.css";
 import Nav from "../components/Nav";
 
 /**

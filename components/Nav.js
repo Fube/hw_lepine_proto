@@ -21,9 +21,9 @@ export default function Nav() {
                                 Requests
                             </a>
                         </Link>
-                        <Link href="/inventory">
+                        <Link href="/confirmations">
                             <a className="btn btn-ghost btn-sm rounded-btn">
-                                Inventory
+                                Confirmations
                             </a>
                         </Link>
                     </div>
