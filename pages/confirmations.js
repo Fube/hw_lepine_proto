@@ -14,6 +14,17 @@ export default function Confirmations({ items: defItems, order: { orderId } }) {
     const router = useRouter();
     const [items, setItems] = useState([...defItems]);
     const redirectOnClick = () => setTimeout(() => router.push("/"), 450);
+    const handleRemoveItem = (id) => {
+        const item = items.find((item) => item.id === id);
+        --item.quantity;
+        setItems([...items]);
+    };
+
+    const handleAddItem = (id) => {
+        const item = items.find((item) => item.id === id);
+        ++item.quantity;
+        setItems([...items]);
+    };
     return (
         <>
             <Nav />
