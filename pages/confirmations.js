@@ -1,7 +1,7 @@
 import Nav from "../components/Nav";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-import Router from "next/router";
+import { useRouter } from "next/router";
 
 /**
  *
@@ -11,8 +11,9 @@ import Router from "next/router";
  * }}
  */
 export default function Confirmations({ items: defItems, order: { orderId } }) {
+    const router = useRouter();
     const [items, setItems] = useState([...defItems]);
-    const redirectOnClick = () => setTimeout(() => Router.push("/"), 450);
+    const redirectOnClick = () => setTimeout(() => router.push("/"), 450);
     return (
         <>
             <Nav />

@@ -1,6 +1,11 @@
+import capitalize from "capitalize";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Nav() {
+    const router = useRouter();
+    const isActive = (path) =>
+        router.pathname.substr(1) === path ? "text-blue-400" : "";
     return (
         <>
             <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content">
@@ -11,21 +16,19 @@ export default function Nav() {
                 </div>
                 <div className="flex-1 px-2 mx-2">
                     <div className="items-stretch hidden lg:flex">
-                        <Link href="/transfers">
-                            <a className="btn btn-ghost btn-sm rounded-btn">
-                                Transfers
-                            </a>
-                        </Link>
-                        <Link href="/requests">
-                            <a className="btn btn-ghost btn-sm rounded-btn">
-                                Requests
-                            </a>
-                        </Link>
-                        <Link href="/confirmations">
-                            <a className="btn btn-ghost btn-sm rounded-btn">
-                                Confirmations
-                            </a>
-                        </Link>
+                        {["transfers", "requests", "confirmations"].map(
+                            (path, key) => (
+                                <Link key={key} href={`/${path}`}>
+                                    <a
+                                        className={`btn btn-ghost btn-sm rounded-btn ${isActive(
+                                            path
+                                        )}`}
+                                    >
+                                        {capitalize(path)}
+                                    </a>
+                                </Link>
+                            )
+                        )}
                     </div>
                 </div>
             </div>

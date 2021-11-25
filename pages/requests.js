@@ -1,8 +1,9 @@
 import { Formik } from "formik";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import Nav from "../components/Nav";
 
 export default function Requests() {
+    const router = useRouter();
     const getErrorFor = (text) =>
         text ? (
             <div className="alert alert-error">
@@ -73,7 +74,7 @@ export default function Requests() {
                         console.log(JSON.stringify(values, null, 2));
 
                         setSubmitting(false);
-                        Router.push("/");
+                        router.push("/");
                     }, 400);
                 }}
             >
@@ -116,7 +117,7 @@ export default function Requests() {
 
                                 <div className="form-control my-4">
                                     <label className="label"></label>
-                                    <span className="label-text">Order ID</span>
+                                    <span className="label-text">Item SKU</span>
                                     <div className="my-2">
                                         <input
                                             className="input input-bordered w-full"
