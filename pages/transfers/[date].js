@@ -7,14 +7,30 @@ import { useRouter } from "next/router";
  */
 export default function SingleTransfer({ items }) {
     const { date } = useRouter();
-    console.log(date);
+    const router = useRouter();
+    const redirectOnClick = () => setTimeout(() => router.push("/"), 450);
     return (
         <>
             <Nav />
-            <h1 className="text-4xl text-center">{ date }</h1>
-            <Transfer items={items}/>
+            <h1 className="text-4xl text-center">{date}</h1>
+            <Transfer items={items} />
+            <div className="flex justify-center mt-6">
+                <button
+                    onClick={redirectOnClick}
+                    className="btn mx-6 btn-success"
+                    type="submit"
+                >
+                    Approve
+                </button>
+                <button
+                    onClick={redirectOnClick}
+                    className="btn mx-6 btn-error"
+                >
+                    Cancel
+                </button>
+            </div>
         </>
-    )
+    );
 }
 
 export function getServerSideProps(context) {
@@ -92,6 +108,6 @@ export function getServerSideProps(context) {
                     orderId: "600446",
                 },
             ],
-        }
-    }
+        },
+    };
 }
