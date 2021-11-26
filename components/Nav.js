@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 export default function Nav() {
     const router = useRouter();
     const isActive = (path) =>
-        router.pathname.substr(1) === path ? "text-blue-400" : "";
+        router.pathname.substr(1).startsWith(path) ? "text-blue-400" : "";
     return (
         <>
             <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content">
