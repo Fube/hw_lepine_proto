@@ -6,13 +6,15 @@ import { useRouter } from "next/router";
  * @param {{ items: [{ id: Number, sku: String, name: String, quantity: Number, orderId: String }] }}
  */
 export default function SingleTransfer({ items }) {
-    const { date } = useRouter();
     const router = useRouter();
+    const {
+        query: { date },
+    } = useRouter();
     const redirectOnClick = () => setTimeout(() => router.push("/"), 450);
     return (
         <>
             <Nav />
-            <h1 className="text-4xl text-center">{date}</h1>
+            <h1 className="text-4xl text-center my-6">For {date}</h1>
             <Transfer items={items} />
             <div className="flex justify-center mt-6">
                 <button

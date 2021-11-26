@@ -19,7 +19,11 @@ export default function Transfers({ transfers }) {
                     </thead>
                     <tbody>
                         {transfers.map(({ id, date }) => (
-                            <Link key={id} href={`/transfers/${id}`} passHref>
+                            <Link
+                                key={id}
+                                href={`/transfers/${encodeURIComponent(date)}`}
+                                passHref
+                            >
                                 <tr className="hover">
                                     <td>{id}</td>
                                     <td>{date}</td>
